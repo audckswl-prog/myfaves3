@@ -26,24 +26,16 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   callbacks: {
-    async jwt({ token, user }) {
-      // On initial sign in, add custom properties to the token
-      if (user) {
-        // @ts-ignore
-        token.username = user.username;
-        // @ts-ignore
+    jwt({ token, user }) {
+      if (user) { // User is available on initial sign-in
         token.id = user.id;
+        token.username = user.username;
       }
       return token;
     },
-    async session({ session, token }) {
-      // Add custom properties to the session object
-      if (session.user) {
-        // @ts-ignore
-        session.user.username = token.username;
-        // @ts-ignore
-        session.user.id = token.id;
-      }
+    session({ session, token }) {
+      session.user.id = token.id as string;
+      session.user.username = token.username as string;
       return session;
     },
   },
