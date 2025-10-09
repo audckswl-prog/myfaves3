@@ -8,7 +8,6 @@ type Item = {
   id: string;
   name: string;
   goodPoints: string | null;
-  description: string | null;
   imageUrl: string | null;
   link: string | null;
   userId: string;
