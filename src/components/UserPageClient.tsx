@@ -7,7 +7,6 @@ import { useState } from 'react';
 type Item = {
   id: string;
   name: string;
-  brand: string | null;
   goodPoints: string | null;
   imageUrl: string | null;
   link: string | null;
