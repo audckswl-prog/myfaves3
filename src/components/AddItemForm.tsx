@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { upload } from '@vercel/blob/client';
 
 export default function AddItemForm() {
   const router = useRouter();
   const [name, setName] = useState('');
-  
   const [goodPoints, setGoodPoints] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
   const [link, setLink] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,41 +16,19 @@ export default function AddItemForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!file && !imageUrl) {
-      alert('Please upload an image or provide an image URL.');
+    if (!file) {
+      alert('Please select an image to upload.');
       setIsSubmitting(false);
       return;
     }
 
-    let uploadedImageUrl = imageUrl;
-
-    if (file) {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const uploadRes = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (uploadRes.ok) {
-          const { url } = await uploadRes.json();
-          uploadedImageUrl = url;
-        } else {
-          alert('Failed to upload image.');
-          setIsSubmitting(false);
-          return;
-        }
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        alert('An unexpected error occurred during image upload.');
-        setIsSubmitting(false);
-        return;
-      }
-    }
-
     try {
+      const newBlob = await upload(file.name, file, {
+        access: 'public',
+        handleUploadUrl: '/api/upload',
+      });
+
+      // After successful upload, create the item in the database
       const res = await fetch('/api/items', {
         method: 'POST',
         headers: {
@@ -60,7 +37,7 @@ export default function AddItemForm() {
         body: JSON.stringify({
           name,
           goodPoints,
-          imageUrl: uploadedImageUrl,
+          imageUrl: newBlob.url, // Use the URL from the uploaded blob
           link,
         }),
       });
@@ -74,7 +51,7 @@ export default function AddItemForm() {
         alert(data.message || 'Failed to add item.');
       }
     } catch (error) {
-      console.error('Error adding item:', error);
+      console.error('An error occurred:', error);
       alert('An unexpected error occurred.');
     } finally {
       setIsSubmitting(false);
@@ -113,6 +90,7 @@ export default function AddItemForm() {
           className="form-control"
           id="image"
           onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
+          required // Make file input required
         />
       </div>
       <div className="mb-3">
@@ -141,7 +119,7 @@ export default function AddItemForm() {
         }}
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Adding...' : 'Add Item'}
+        {isSubmitting ? 'Uploading...' : 'Add Item'}
       </button>
     </form>
   );
