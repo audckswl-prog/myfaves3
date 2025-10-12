@@ -37,7 +37,7 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
         {user.items.map((item) => (
           <div key={item.id} className="col">
             <div className="card h-100">
-              <div style={{ position: 'relative', width: '100%' }}>
+              <div style={{ position: 'relative', width: '100%', height: '450px' }}>
                 {item.imageUrl && (
                   <Image
                     src={item.imageUrl}
