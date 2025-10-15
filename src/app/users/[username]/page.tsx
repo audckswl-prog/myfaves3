@@ -34,12 +34,11 @@ export default async function UserPage({ params }: UserPageProps) {
 
   return (
     <div style={{ backgroundColor: '#FF6D0C', minHeight: '100vh', padding: '5rem 0', fontFamily: 'var(--font-rock-salt)', position: 'relative' }}>
-
-      <div style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 10 }}>
+      <div className="logo-container">
         <Image src="/logo.png" alt="MyFaves3 Logo" width={150} height={150} />
       </div>
       {!isOwner && (
-        <div style={{ position: 'absolute', top: '90px', right: '20px', zIndex: 10 }}>
+        <div className="create-my-page-button-container">
           <Link
             href="/"
             style={{
@@ -59,13 +58,51 @@ export default async function UserPage({ params }: UserPageProps) {
         </div>
       )}
       <div className="container">
-        <div className="text-center mb-5">
-          <h1 style={{ fontSize: '3rem' }}>
+        <div className="text-center mb-5 title-container">
+          <h1>
             MyFaves3
           </h1>
         </div>
         <UserPageClient user={user} isOwner={isOwner} />
       </div>
+      <style jsx>{`
+        .logo-container {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 10;
+        }
+        .create-my-page-button-container {
+          position: absolute;
+          top: 90px;
+          right: 20px;
+          z-index: 10;
+        }
+        .title-container h1 {
+          font-size: 3rem;
+        }
+
+        @media (max-width: 768px) {
+          .logo-container {
+            left: -20px;
+            top: 10px;
+          }
+          .logo-container :global(img) {
+            width: 100px !important;
+            height: 100px !important;
+          }
+          .title-container {
+            text-align: right !important;
+            padding-right: 20px;
+          }
+          .title-container h1 {
+            font-size: 2.5rem;
+          }
+          .create-my-page-button-container {
+            top: 120px;
+          }
+        }
+      `}</style>
     </div>
   );
 }

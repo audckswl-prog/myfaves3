@@ -78,39 +78,28 @@ export default function DashboardClient({ items, name, username }: DashboardClie
   return (
     <div style={{ position: 'relative' }}>
       {notification.show && (
-        <div style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'rgba(255, 255, 255, 0.6)',
-          color: 'black',
-          padding: '10px 20px',
-          borderRadius: '8px',
-          zIndex: 1050,
-          transition: 'opacity 0.5s ease-in-out',
-          opacity: notification.show ? 1 : 0,
-        }}>
+        <div className={`notification ${notification.show ? 'show' : ''}`}>
           {notification.message}
         </div>
       )}
 
-      <div style={{ position: 'absolute', top: '-40px', right: 0, zIndex: 10, display: 'flex', flexDirection: 'column' }}>
-        <button onClick={handleCopyLink} style={buttonStyle}>
-          Copy Link
-        </button>
-        <Link href="/add-item" style={buttonStyle}>
-          Add Item
-        </Link>
+      <div className="header-container">
+        <div className="text-center mb-5">
+          <h1 style={{ fontSize: '3rem' }}>
+            MyFaves3
+          </h1>
+        </div>
+        <div className="button-container">
+          <button onClick={handleCopyLink} style={buttonStyle}>
+            Copy Link
+          </button>
+          <Link href="/add-item" style={buttonStyle}>
+            Add Item
+          </Link>
+        </div>
       </div>
 
-      <div className="text-center mb-5">
-        <h1 style={{ fontSize: '3rem' }}>
-          MyFaves3
-        </h1>
-      </div>
-
-      <h2 className="mb-3">Your Items</h2>
+      <h2 className="mb-3 your-items-title">Your Items</h2>
 
       {items.length > 0 ? (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
@@ -189,6 +178,54 @@ export default function DashboardClient({ items, name, username }: DashboardClie
         </p>
       )}
       <style jsx>{`
+        .header-container {
+          position: relative;
+        }
+        .button-container {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 10;
+        }
+        .notification {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgba(255, 255, 255, 0.6);
+          color: black;
+          padding: 10px 20px;
+          border-radius: 8px;
+          z-index: 1050;
+          transition: opacity 0.5s ease-in-out;
+          opacity: 0;
+          text-align: center;
+        }
+        .notification.show {
+          opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+          .button-container {
+            position: static;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 1rem;
+          }
+          .text-center.mb-5 {
+            margin-bottom: 1rem !important;
+          }
+          .your-items-title {
+            display: none;
+          }
+          .notification {
+            width: 90%;
+            padding: 15px;
+          }
+        }
+
         .heart-icon {
           font-size: 1.5rem;
           cursor: pointer;
