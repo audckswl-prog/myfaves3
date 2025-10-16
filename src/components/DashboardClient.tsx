@@ -231,9 +231,12 @@ export default function DashboardClient({ items, name, username }: DashboardClie
           left: 10px;
           cursor: pointer;
           z-index: 1;
-          color: white;
-          stroke: black;
-          stroke-width: 1;
+          background-color: rgba(0, 0, 0, 0.3);
+          border-radius: 50%;
+          padding: 2px;
+          color: white; /* This will be the fill color */
+          stroke: white; /* This will be the stroke color */
+          stroke-width: 2;
         }
 
         .heart-icon {
