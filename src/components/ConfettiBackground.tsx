@@ -44,8 +44,8 @@ export default function ConfettiBackground() {
         y: Math.random() * h,
         w: rand(4, 12), // Smaller pieces
         h: rand(1, 5),  // Smaller pieces
-        vx: rand(-0.05, 0.05), // Slower horizontal movement
-        vy: rand(0.02, 0.1),   // Slower vertical movement
+        vx: rand(-0.25, 0.25), // Slower horizontal movement
+        vy: rand(0.1, 0.5),   // Slower vertical movement
         a: rand(0, Math.PI * 2),
         va: rand(-0.005, 0.005), // Slower angular velocity
         opacity: rand(0.4, 0.7), // More consistent and slightly higher opacity

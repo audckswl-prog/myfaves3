@@ -54,45 +54,33 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
               <div style={{ position: 'relative', width: '100%', height: '450px' }}>
 
-                {item.imageUrl && (
+                                  {item.imageUrl && (
 
-                  <Image
+                                    <Image
 
-                    src={item.imageUrl}
+                                      src={item.imageUrl}
 
-                    alt={item.name}
+                                      alt={item.name}
 
-                    fill
+                                      fill
 
-                    style={{ objectFit: 'cover' }}
+                                      style={{ objectFit: 'cover' }}
 
-                    className="card-img-top"
+                                      className="card-img-top"
 
-                  />
+                                    />
 
-                )}
+                                  )}
 
-                {item.goodPoints && (
+                                  {activeItemId === item.id && item.goodPoints && (
 
-                  <InfoIcon
+                                    <div className="good-points-overlay">
 
-                    className="info-icon"
+                                      <p className="good-points-text">{item.goodPoints}</p>
 
-                    onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                                    </div>
 
-                  />
-
-                )}
-
-                {activeItemId === item.id && item.goodPoints && (
-
-                  <div className="good-points-overlay">
-
-                    <p className="good-points-text">{item.goodPoints}</p>
-
-                  </div>
-
-                )}
+                                  )}
 
               </div>
 
@@ -100,11 +88,27 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                  <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
+                                    <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
 
-                    <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
+                                                          <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
 
-                  </div>
+                                                          {item.goodPoints && (
+
+                                                            <div>
+
+                                                              <InfoIcon
+
+                                                                onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+
+                                                                style={{ cursor: 'pointer', color: 'black' }}
+
+                                                              />
+
+                                                            </div>
+
+                                                          )}
+
+                                    </div>
 
                   {item.link && (
 
@@ -142,20 +146,6 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
         </p>
       )}
       <style jsx>{`
-        }
-
-        .info-icon {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          cursor: pointer;
-          z-index: 1;
-          background-color: rgba(0, 0, 0, 0.3);
-          border-radius: 50%;
-          padding: 2px;
-          color: white; /* This will be the fill color */
-          stroke: white; /* This will be the stroke color */
-          stroke-width: 2;
         }
 
         .heart-icon {

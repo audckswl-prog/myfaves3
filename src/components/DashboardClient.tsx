@@ -118,12 +118,6 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                       className="card-img-top"
                     />
                   )}
-                  {item.goodPoints && (
-                    <InfoIcon
-                      className="info-icon"
-                      onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
-                    />
-                  )}
                   {activeItemId === item.id && item.goodPoints && (
                     <div className="good-points-overlay">
                       <p className="good-points-text">{item.goodPoints}</p>
@@ -134,6 +128,14 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
                       <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</h5>
+                      {item.goodPoints && (
+                        <div>
+                          <InfoIcon
+                            onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                            style={{ cursor: 'pointer', color: 'black' }}
+                          />
+                        </div>
+                      )}
                     </div>
                     {item.link && (
                       <a
@@ -223,20 +225,6 @@ export default function DashboardClient({ items, name, username }: DashboardClie
             width: 90%;
             padding: 15px;
           }
-        }
-
-        .info-icon {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          cursor: pointer;
-          z-index: 1;
-          background-color: rgba(0, 0, 0, 0.3);
-          border-radius: 50%;
-          padding: 2px;
-          color: white; /* This will be the fill color */
-          stroke: white; /* This will be the stroke color */
-          stroke-width: 2;
         }
 
         .heart-icon {
