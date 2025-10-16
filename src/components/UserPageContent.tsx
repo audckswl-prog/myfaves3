@@ -41,6 +41,11 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
         </div>
       )}
       <div className="container main-content-container">
+        <div className="text-center mb-5 title-container">
+          <h1>
+            MyFaves3
+          </h1>
+        </div>
         <UserPageClient user={user} isOwner={isOwner} />
       </div>
       <style jsx>{`

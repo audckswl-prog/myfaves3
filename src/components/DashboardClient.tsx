@@ -78,7 +78,7 @@ export default function DashboardClient({ items, name, username }: DashboardClie
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="container" style={{ position: 'relative' }}>
       {notification.show && (
         <div className={`notification ${notification.show ? 'show' : ''}`}>
           {notification.message}

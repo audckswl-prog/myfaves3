@@ -30,9 +30,7 @@ export default async function DashboardPage() {
 
   return (
     <div style={{ backgroundColor: '#FF6D0C', minHeight: '100vh', padding: '5rem 0', fontFamily: 'var(--font-rock-salt)' }}>
-      <div className="container">
-        <DashboardClient items={user.items} name={user.name} username={user.username} />
-      </div>
+      <DashboardClient items={user.items} name={user.name} username={user.username} />
     </div>
   );
 }
