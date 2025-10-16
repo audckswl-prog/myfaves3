@@ -35,6 +35,7 @@ const WobblyCommentIcon: React.FC<WobblyCommentIconProps> = ({ onClick, style })
             height: 4px;
             background-color: black;
             border-radius: 50%;
+            box-shadow: 0 0 0 1px white;
         }
       `}</style>
     </div>
