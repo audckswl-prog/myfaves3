@@ -47,27 +47,26 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
                     className="card-img-top"
                   />
                 )}
-                {activeItemId === item.id && item.goodPoints && (
-                  <div className="good-points-overlay">
-                    <p>{item.goodPoints}</p>
-                  </div>
-                )}
-              </div>
-              <div className="card-body">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
-                    <h5 className="card-title" style={{ fontFamily: '"Nanum Brush Script", var(--font-merienda)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
-                    {item.goodPoints && (
-                      <p
-                        className="card-text heart-icon"
-                        onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
-                        style={{ fontFamily: 'var(--font-rock-salt)' }}
-                      >
-                        ❤️
-                      </p>
-                    )}
-                  </div>
-                  {item.link && (
+                                  {activeItemId === item.id && item.goodPoints && (
+                                  <div className="good-points-overlay">
+                                    <p className="good-points-text">{item.goodPoints}</p>
+                                  </div>
+                                )}
+                              </div>
+                              <div className="card-body">
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                  <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
+                                    <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
+                                    {item.goodPoints && (
+                                      <p
+                                        className="card-text heart-icon"
+                                        onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                                        style={{ fontFamily: 'var(--font-rock-salt)' }}
+                                      >
+                                        ❤️
+                                      </p>
+                                    )}
+                                  </div>                  {item.link && (
                     <a
                       href={item.link}
                       target="_blank"
@@ -118,7 +117,8 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
           text-align: center;
           color: black;
         }
-        .good-points-overlay p {
+        .good-points-overlay p.good-points-text {
+          font-family: var(--font-noto-sans-kr);
           font-size: 1rem; /* A reasonable base font size */
           word-wrap: break-word;
           max-height: 100%;

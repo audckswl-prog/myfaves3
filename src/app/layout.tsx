@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from 'next';
-import { Inter, Lato, Rock_Salt, Merienda } from 'next/font/google';
+import { Inter, Lato, Rock_Salt, Merienda, Noto_Sans_KR } from 'next/font/google';
 import { NextAuthProvider } from '@/components/NextAuthProvider';
 
 import ConditionalLayout from '@/components/ConditionalLayout';
@@ -24,6 +24,12 @@ const merienda = Merienda({
   variable: '--font-merienda',
 });
 
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: '100',
+  variable: '--font-noto-sans-kr',
+});
+
 
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.className} ${lato.variable} ${rockSalt.variable} ${merienda.variable}`}> {/* Apply font variable */}
+      <body className={`${inter.className} ${lato.variable} ${rockSalt.variable} ${merienda.variable} ${notoSansKr.variable}`}> {/* Apply font variable */}
         <NextAuthProvider>
           <ConditionalLayout>{children}</ConditionalLayout>
         </NextAuthProvider>

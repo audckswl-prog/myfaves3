@@ -118,14 +118,14 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                   )}
                   {activeItemId === item.id && item.goodPoints && (
                     <div className="good-points-overlay">
-                      <p>{item.goodPoints}</p>
+                      <p className="good-points-text">{item.goodPoints}</p>
                     </div>
                   )}
                 </div>
                 <div className="card-body">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
-                      <h5 className="card-title" style={{ fontFamily: '"Nanum Brush Script", var(--font-merienda)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</h5>
+                      <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</h5>
                       {item.goodPoints && (
                         <p
                           className="card-text heart-icon"
@@ -244,7 +244,8 @@ export default function DashboardClient({ items, name, username }: DashboardClie
           text-align: center;
           color: black;
         }
-        .good-points-overlay p {
+        .good-points-overlay p.good-points-text {
+          font-family: var(--font-noto-sans-kr);
           font-size: 1rem; /* A reasonable base font size */
           word-wrap: break-word;
           max-height: 100%;
