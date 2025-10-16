@@ -94,41 +94,79 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                             </div>
 
-                            <div className="card-body">
+                                          <div className="card-body">
 
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                                <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
+                                              <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
 
-                                  <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
+                                                <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
 
-                                </div>
+                                              </div>
 
-                  {item.link && (
+                                              {item.link && (
 
-                    <a
+                                                <a
 
-                      href={item.link}
+                                                  href={item.link}
 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-sm"
-                      style={{
-                        fontFamily: 'var(--font-rock-salt)',
-                        backgroundColor: '#00AEEF',
-                        border: 'none',
-                        borderRadius: '25% 75% 40% 60% / 75% 25% 60% 40%',
-                        color: 'white',
-                        padding: '10px 20px',
-                        textDecoration: 'none',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      Purchase Link
-                    </a>
-                  )}
-                </div>
-              </div>
+                                                  target="_blank"
+
+                                                  rel="noopener noreferrer"
+
+                                                  className="btn-sm"
+
+                                                  style={{
+
+                                                    fontFamily: 'var(--font-rock-salt)',
+
+                                                    backgroundColor: '#00AEEF',
+
+                                                    border: 'none',
+
+                                                    borderRadius: '25% 75% 40% 60% / 75% 25% 60% 40%',
+
+                                                    color: 'white',
+
+                                                    padding: '10px 20px',
+
+                                                    textDecoration: 'none',
+
+                                                    whiteSpace: 'nowrap',
+
+                                                  }}
+
+                                                >
+
+                                                  Purchase Link
+
+                                                </a>
+
+                                              )}
+
+                                            </div>
+
+                                          </div>
+
+                                          <div className="card-footer d-flex justify-content-end align-items-center" aria-hidden="true" style={{ visibility: 'hidden' }}>
+
+                                            <div className="btn-group">
+
+                                              <span className="btn btn-secondary btn-sm">
+
+                                                <span style={{ fontFamily: 'var(--font-rock-salt)' }}>Edit</span>
+
+                                              </span>
+
+                                              <span className="btn btn-danger btn-sm" style={{ fontFamily: 'var(--font-rock-salt)' }}>
+
+                                                Delete
+
+                                              </span>
+
+                                            </div>
+
+                                          </div>
             </div>
           </div>
         ))}
