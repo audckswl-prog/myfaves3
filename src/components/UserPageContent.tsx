@@ -67,7 +67,7 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
 
         @media (max-width: 768px) {
           .logo-container {
-            left: -20px;
+            left: 20px;
             top: 10px;
           }
           .logo-container :global(img) {
@@ -75,8 +75,12 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
             height: 100px !important;
           }
           .title-container {
-            text-align: right !important;
-            padding-right: 20px;
+            position: absolute;
+            top: 120px; /* Under the logo */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center !important;
           }
           .title-container h1 {
             font-size: 2.5rem;
