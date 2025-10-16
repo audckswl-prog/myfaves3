@@ -67,11 +67,11 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
 
         @media (max-width: 768px) {
           .main-content-container {
-            margin-top: 150px;
+            margin-top: 140px;
           }
           .logo-container {
-            left: 5px;
-            top: 5px;
+            left: 0;
+            top: 0;
           }
           .logo-container :global(img) {
             width: 100px !important;
@@ -79,7 +79,7 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
           }
           .title-container {
             position: absolute;
-            top: 120px; /* Under the logo */
+            top: 105px; /* Under the logo */
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
