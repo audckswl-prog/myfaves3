@@ -22,13 +22,13 @@ const WobblyCommentIcon: React.FC<WobblyCommentIconProps> = ({ onClick, style })
           width: 28px;
           height: 28px;
           border: 1px solid black;
-          background-color: white;
           border-radius: 73% 27% 59% 41% / 61% 57% 43% 39%;
           cursor: pointer;
           display: flex;
           justify-content: center;
           align-items: center;
           gap: 2px;
+          box-shadow: 0 0 0 1px white;
         }
         .wobbly-comment-icon-dot {
             width: 4px;
