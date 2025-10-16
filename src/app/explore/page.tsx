@@ -1,6 +1,8 @@
 import ExplorePageClient from '@/components/ExplorePageClient';
 import prisma from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ExplorePage() {
   // Fetch items directly from Prisma in the Server Component
   // This is more efficient than making an API call from a Server Component
