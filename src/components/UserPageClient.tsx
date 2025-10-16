@@ -26,7 +26,7 @@ type UserPageClientProps = {
   isOwner: boolean;
 };
 
-import CommentIcon from './CommentIcon';
+import WobblyCommentIcon from './WobblyCommentIcon';
 
 
 
@@ -94,17 +94,15 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                                                           {item.goodPoints && (
 
-                                                                                  <div>
+                                                                                                        <div>
 
-                                                                                    <CommentIcon
+                                                                                                          <WobblyCommentIcon
 
-                                                                                      onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                                                                                                            onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
 
-                                                                                      style={{ cursor: 'pointer', color: 'black' }}
+                                                                                                          />
 
-                                                                                    />
-
-                                                                                  </div>
+                                                                                                        </div>
 
                                                           )}
 

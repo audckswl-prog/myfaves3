@@ -19,7 +19,7 @@ type DashboardClientProps = {
   username: string | null;
 };
 
-import CommentIcon from './CommentIcon';
+import WobblyCommentIcon from './WobblyCommentIcon';
 
 // This component is specifically for the dashboard. It always shows management controls.
 export default function DashboardClient({ items, name, username }: DashboardClientProps) {
@@ -130,9 +130,8 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                       <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</h5>
                       {item.goodPoints && (
                         <div>
-                          <CommentIcon
+                          <WobblyCommentIcon
                             onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
-                            style={{ cursor: 'pointer', color: 'black' }}
                           />
                         </div>
                       )}
