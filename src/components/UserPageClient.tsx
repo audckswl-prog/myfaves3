@@ -26,7 +26,7 @@ type UserPageClientProps = {
   isOwner: boolean;
 };
 
-import InfoIcon from './InfoIcon';
+import CommentIcon from './CommentIcon';
 
 
 
@@ -94,17 +94,17 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                                                           {item.goodPoints && (
 
-                                                            <div>
+                                                                                  <div>
 
-                                                              <InfoIcon
+                                                                                    <CommentIcon
 
-                                                                onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                                                                                      onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
 
-                                                                style={{ cursor: 'pointer', color: 'black' }}
+                                                                                      style={{ cursor: 'pointer', color: 'black' }}
 
-                                                              />
+                                                                                    />
 
-                                                            </div>
+                                                                                  </div>
 
                                                           )}
 
