@@ -118,6 +118,11 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                       className="card-img-top"
                     />
                   )}
+                  {item.goodPoints && (
+                    <div className="item-icon-container">
+                      <WobblyCommentIcon onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)} />
+                    </div>
+                  )}
                   {activeItemId === item.id && item.goodPoints && (
                     <div className="good-points-overlay">
                       <p className="good-points-text">{item.goodPoints}</p>
@@ -128,13 +133,6 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
                       <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</h5>
-                      {item.goodPoints && (
-                        <div>
-                          <WobblyCommentIcon
-                            onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
-                          />
-                        </div>
-                      )}
                     </div>
                     {item.link && (
                       <a
@@ -224,6 +222,13 @@ export default function DashboardClient({ items, name, username }: DashboardClie
             width: 90%;
             padding: 15px;
           }
+        }
+
+        .item-icon-container {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 1;
         }
 
         .heart-icon {

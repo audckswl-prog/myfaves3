@@ -40,12 +40,7 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
           </Link>
         </div>
       )}
-      <div className="container">
-        <div className="text-center mb-5 title-container">
-          <h1>
-            MyFaves3
-          </h1>
-        </div>
+      <div className="container main-content-container">
         <UserPageClient user={user} isOwner={isOwner} />
       </div>
       <style jsx>{`
@@ -66,9 +61,12 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
         }
 
         @media (max-width: 768px) {
+          .main-content-container {
+            margin-top: 150px;
+          }
           .logo-container {
-            left: 20px;
-            top: 10px;
+            left: 5px;
+            top: 5px;
           }
           .logo-container :global(img) {
             width: 100px !important;

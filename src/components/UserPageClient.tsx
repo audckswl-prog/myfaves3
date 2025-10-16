@@ -52,61 +52,57 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
             <div className="card h-100">
 
-              <div style={{ position: 'relative', width: '100%', height: '450px' }}>
+                            <div style={{ position: 'relative', width: '100%', height: '450px' }}>
 
-                                  {item.imageUrl && (
+                              {item.imageUrl && (
 
-                                    <Image
+                                <Image
 
-                                      src={item.imageUrl}
+                                  src={item.imageUrl}
 
-                                      alt={item.name}
+                                  alt={item.name}
 
-                                      fill
+                                  fill
 
-                                      style={{ objectFit: 'cover' }}
+                                  style={{ objectFit: 'cover' }}
 
-                                      className="card-img-top"
+                                  className="card-img-top"
 
-                                    />
+                                />
 
-                                  )}
+                              )}
 
-                                  {activeItemId === item.id && item.goodPoints && (
+                              {item.goodPoints && (
 
-                                    <div className="good-points-overlay">
+                                <div className="item-icon-container">
 
-                                      <p className="good-points-text">{item.goodPoints}</p>
+                                  <WobblyCommentIcon onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)} />
 
-                                    </div>
+                                </div>
 
-                                  )}
+                              )}
 
-              </div>
+                              {activeItemId === item.id && item.goodPoints && (
 
-              <div className="card-body">
+                                <div className="good-points-overlay">
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                  <p className="good-points-text">{item.goodPoints}</p>
 
-                                    <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
+                                </div>
 
-                                                          <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
+                              )}
 
-                                                          {item.goodPoints && (
+                            </div>
 
-                                                                                                        <div>
+                            <div className="card-body">
 
-                                                                                                          <WobblyCommentIcon
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                                                                                                            onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
+                                <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
 
-                                                                                                          />
+                                  <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
 
-                                                                                                        </div>
-
-                                                          )}
-
-                                    </div>
+                                </div>
 
                   {item.link && (
 
@@ -146,6 +142,12 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
       <style jsx>{`
         }
 
+        .item-icon-container {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 1;
+        }
         .heart-icon {
           font-size: 1.5rem;
           cursor: pointer;
