@@ -48,9 +48,9 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
         {user.items.map((item) => (
 
-          <div key={item.id} className="col">
+                    <div key={item.id} className="col">
 
-            <div className="card h-100">
+                      <div className="card h-100 user-page-card">
 
                             <div style={{ position: 'relative', width: '100%', height: '450px' }}>
 
@@ -94,79 +94,59 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                             </div>
 
-                                          <div className="card-body">
+                                                        <div className="card-body">
 
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                                              <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
+                                                            <div style={{ flex: 1, minWidth: 0, marginRight: '1rem' }}>
 
-                                                <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
+                                                              <h5 className="card-title" style={{ fontFamily: 'var(--font-noto-sans-kr)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '1.1rem' }}>{item.name}</h5>
 
-                                              </div>
+                                                            </div>
 
-                                              {item.link && (
+                                                            {item.link && (
 
-                                                <a
+                                                              <a
 
-                                                  href={item.link}
+                                                                href={item.link}
 
-                                                  target="_blank"
+                                                                target="_blank"
 
-                                                  rel="noopener noreferrer"
+                                                                rel="noopener noreferrer"
 
-                                                  className="btn-sm"
+                                                                className="btn-sm"
 
-                                                  style={{
+                                                                style={{
 
-                                                    fontFamily: 'var(--font-rock-salt)',
+                                                                  fontFamily: 'var(--font-rock-salt)',
 
-                                                    backgroundColor: '#00AEEF',
+                                                                  backgroundColor: '#00AEEF',
 
-                                                    border: 'none',
+                                                                  border: 'none',
 
-                                                    borderRadius: '25% 75% 40% 60% / 75% 25% 60% 40%',
+                                                                  borderRadius: '25% 75% 40% 60% / 75% 25% 60% 40%',
 
-                                                    color: 'white',
+                                                                  color: 'white',
 
-                                                    padding: '10px 20px',
+                                                                  padding: '10px 20px',
 
-                                                    textDecoration: 'none',
+                                                                  textDecoration: 'none',
 
-                                                    whiteSpace: 'nowrap',
+                                                                  whiteSpace: 'nowrap',
 
-                                                  }}
+                                                                }}
 
-                                                >
+                                                              >
 
-                                                  Purchase Link
+                                                                Purchase Link
 
-                                                </a>
+                                                              </a>
 
-                                              )}
+                                                            )}
 
-                                            </div>
+                                                          </div>
 
-                                          </div>
-
-                                          <div className="card-footer d-flex justify-content-end align-items-center" aria-hidden="true" style={{ visibility: 'hidden' }}>
-
-                                            <div className="btn-group">
-
-                                              <span className="btn btn-secondary btn-sm">
-
-                                                <span style={{ fontFamily: 'var(--font-rock-salt)' }}>Edit</span>
-
-                                              </span>
-
-                                              <span className="btn btn-danger btn-sm" style={{ fontFamily: 'var(--font-rock-salt)' }}>
-
-                                                Delete
-
-                                              </span>
-
-                                            </div>
-
-                                          </div>
+                                                        </div>
             </div>
           </div>
         ))}
@@ -209,6 +189,11 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
           font-size: 1rem; /* A reasonable base font size */
           word-wrap: break-word;
           max-height: 100%;
+        }
+      `}</style>
+      <style jsx>{`
+        .user-page-card {
+          min-height: 630px;
         }
       `}</style>
     </div>
