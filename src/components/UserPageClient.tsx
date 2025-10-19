@@ -162,7 +162,7 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
         .item-icon-container {
           position: absolute;
-          top: 40px;
+          top: 55px;
           left: 10px;
           z-index: 1;
         }
