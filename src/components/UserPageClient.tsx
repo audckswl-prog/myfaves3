@@ -162,7 +162,7 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
         .item-icon-container {
           position: absolute;
-          top: 10px;
+          top: 40px;
           left: 10px;
           z-index: 1;
         }
@@ -189,11 +189,6 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
           font-size: 1rem; /* A reasonable base font size */
           word-wrap: break-word;
           max-height: 100%;
-        }
-      `}</style>
-      <style jsx>{`
-        .user-page-card {
-          min-height: 630px;
         }
       `}</style>
     </div>
