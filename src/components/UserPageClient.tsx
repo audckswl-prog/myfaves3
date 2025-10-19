@@ -158,8 +158,6 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
         </p>
       )}
       <style jsx>{`
-        }
-
         .item-icon-container {
           position: absolute;
           top: 55px;
