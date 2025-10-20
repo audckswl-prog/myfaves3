@@ -26,8 +26,6 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const desktopButtonStyle: React.CSSProperties = {
     backgroundColor: 'transparent',
