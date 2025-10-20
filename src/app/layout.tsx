@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   title: 'MyFaves3',
   description: 'Showcase your favorite items to the world.',
   openGraph: {
-    images: ['/og-image.png'],
+    images: ['https://myfaves3-y2dw.vercel.app/og-image.png'],
   },
 };
 
