@@ -29,9 +29,9 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
 
   const desktopButtonStyle: React.CSSProperties = {
     backgroundColor: 'transparent',
-    border: '2px solid white',
+    border: '1px solid white',
     color: 'white',
-    padding: '10px 20px',
+    padding: '11px 22px',
     borderRadius: '60% 40% 30% 70% / 70% 30% 70% 30%',
     fontFamily: 'var(--font-rock-salt)',
     cursor: 'pointer',
@@ -41,8 +41,8 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
 
   const mobileButtonStyle: React.CSSProperties = {
     ...desktopButtonStyle,
-    padding: '4px 8px',
-    fontSize: '0.6rem',
+    padding: '5px 10px',
+    fontSize: '0.65rem',
   };
 
   return (
