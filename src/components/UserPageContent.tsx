@@ -41,8 +41,8 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
 
   const mobileButtonStyle: React.CSSProperties = {
     ...desktopButtonStyle,
-    padding: '5px 10px',
-    fontSize: '0.7rem',
+    padding: '4px 8px',
+    fontSize: '0.6rem',
   };
 
   return (
@@ -109,7 +109,7 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
             font-size: 2.5rem;
           }
           .create-my-page-button-container {
-            top: 10px;
+            top: 35px;
             right: 10px;
           }
         }
