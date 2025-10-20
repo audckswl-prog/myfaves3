@@ -27,7 +27,7 @@ const WobblyCommentIcon: React.FC<WobblyCommentIconProps> = ({ onClick, style })
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 2px;
+          gap: 3px;
         }
         .wobbly-comment-icon-dot {
             width: 2px;
