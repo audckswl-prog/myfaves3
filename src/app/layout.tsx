@@ -35,6 +35,9 @@ const notoSansKr = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: 'MyFaves3',
   description: 'Showcase your favorite items to the world.',
+  openGraph: {
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
