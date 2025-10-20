@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import UserPageClient from '@/components/UserPageClient';
 import { User, Item } from '@prisma/client';
 
@@ -15,6 +16,37 @@ type UserPageContentProps = {
 };
 
 export default function UserPageContent({ user, isOwner }: UserPageContentProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const desktopButtonStyle: React.CSSProperties = {
+    backgroundColor: 'transparent',
+    border: '2px solid white',
+    color: 'white',
+    padding: '10px 20px',
+    borderRadius: '60% 40% 30% 70% / 70% 30% 70% 30%',
+    fontFamily: 'var(--font-rock-salt)',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
+  };
+
+  const mobileButtonStyle: React.CSSProperties = {
+    ...desktopButtonStyle,
+    padding: '5px 10px',
+    fontSize: '0.7rem',
+  };
+
   return (
     <div style={{ backgroundColor: '#FF6D0C', minHeight: '100vh', padding: '5rem 0', fontFamily: 'var(--font-rock-salt)', position: 'relative' }}>
       <div className="logo-container">
@@ -22,7 +54,10 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
       </div>
       {!isOwner && (
         <div className="create-my-page-button-container">
-          <Link href="/" className="create-page-link">
+          <Link
+            href="/"
+            style={isMobile ? mobileButtonStyle : desktopButtonStyle}
+          >
             Create my page
           </Link>
         </div>
@@ -47,23 +82,6 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
           top: 90px;
           right: 20px;
           z-index: 10;
-        }
-        .create-page-link {
-          display: inline-block; /* Needed for padding and border */
-          background-color: transparent;
-          border: 2px solid white;
-          color: white;
-          padding: 10px 20px;
-          border-radius: 60% 40% 30% 70% / 70% 30% 70% 30%;
-          font-family: var(--font-rock-salt);
-          cursor: pointer;
-          text-decoration: none;
-          white-space: nowrap;
-          transition: all 0.2s ease-in-out;
-        }
-        .create-page-link:hover {
-          background-color: rgba(255, 255, 255, 0.1);
-          transform: scale(1.05);
         }
         .title-container h1 {
           font-size: 3rem;
@@ -95,10 +113,6 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
           .create-my-page-button-container {
             top: 10px;
             right: 10px;
-          }
-          .create-page-link {
-            padding: 5px 10px;
-            font-size: 0.7rem;
           }
         }
       `}</style>
