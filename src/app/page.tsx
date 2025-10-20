@@ -18,10 +18,10 @@ export default async function LobbyPage() {
     <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="text-center" style={{ marginTop: '-50px' }}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Image src="/logo.png" alt="MyFaves3 Logo" width={300} height={300} style={{ maxWidth: '100%', height: 'auto' }} />
+          <Image src="/logo.png" alt="MyFaves3 Logo" width={300} height={300} style={{ maxWidth: '100%', height: 'auto', marginLeft: '-10px' }} />
         </div>
         <h1 className="mt-4" style={{ fontWeight: '100' }}>Welcome to MyFaves3</h1>
-        <p className="lead" style={{ fontSize: '1rem', padding: '0 20px' }}>Create your own page to share your favorite things.</p>
+        <p className="lead" style={{ fontSize: '1rem', padding: '0 20px' }}>Share your faves</p>
         <hr className="my-4" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.5)' }} />
         <Link
           href="/api/auth/signin"
