@@ -8,6 +8,8 @@ type EditItemFormProps = {
   item: Item;
 };
 
+import { upload } from '@vercel/blob/client';
+
 export default function EditItemForm({ item }: EditItemFormProps) {
   const router = useRouter();
   const [name, setName] = useState(item.name);
@@ -22,32 +24,16 @@ export default function EditItemForm({ item }: EditItemFormProps) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!file && !imageUrl) {
-      alert('Please upload an image or provide an image URL.');
-      setIsSubmitting(false);
-      return;
-    }
-
     let uploadedImageUrl = imageUrl;
 
+    // If a new file is selected, upload it first.
     if (file) {
-      const formData = new FormData();
-      formData.append('file', file);
-
       try {
-        const uploadRes = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData,
+        const newBlob = await upload(file.name, file, {
+          access: 'public',
+          handleUploadUrl: '/api/upload',
         });
-
-        if (uploadRes.ok) {
-          const { url } = await uploadRes.json();
-          uploadedImageUrl = url;
-        } else {
-          alert('Failed to upload image.');
-          setIsSubmitting(false);
-          return;
-        }
+        uploadedImageUrl = newBlob.url; // Update the image URL to the new one
       } catch (error) {
         console.error('Error uploading image:', error);
         alert('An unexpected error occurred during image upload.');
@@ -56,6 +42,7 @@ export default function EditItemForm({ item }: EditItemFormProps) {
       }
     }
 
+    // Now, update the item with the (potentially new) imageUrl.
     try {
       const res = await fetch(`/api/items/${item.id}`, {
         method: 'PUT',
