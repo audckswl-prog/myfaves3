@@ -82,15 +82,15 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                               )}
 
-                              {activeItemId === item.id && item.goodPoints && (
+                                              {activeItemId === item.id && item.goodPoints && (
 
-                                <div className="good-points-overlay">
+                                                <div className="good-points-overlay" onClick={() => setActiveItemId(null)}>
 
-                                  <p className="good-points-text">{item.goodPoints}</p>
+                                                  <p className="good-points-text">{item.goodPoints}</p>
 
-                                </div>
+                                                </div>
 
-                              )}
+                                              )}
 
                             </div>
 

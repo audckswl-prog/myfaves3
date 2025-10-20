@@ -22,20 +22,7 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
       </div>
       {!isOwner && (
         <div className="create-my-page-button-container">
-          <Link
-            href="/"
-            style={{
-              backgroundColor: 'transparent',
-              border: '2px solid white',
-              color: 'white',
-              padding: '10px 20px',
-              borderRadius: '60% 40% 30% 70% / 70% 30% 70% 30%',
-              fontFamily: 'var(--font-rock-salt)',
-              cursor: 'pointer',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
+          <Link href="/" className="create-page-link">
             Create my page
           </Link>
         </div>
@@ -60,6 +47,23 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
           top: 90px;
           right: 20px;
           z-index: 10;
+        }
+        .create-page-link {
+          display: inline-block; /* Needed for padding and border */
+          background-color: transparent;
+          border: 2px solid white;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 60% 40% 30% 70% / 70% 30% 70% 30%;
+          font-family: var(--font-rock-salt);
+          cursor: pointer;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: all 0.2s ease-in-out;
+        }
+        .create-page-link:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: scale(1.05);
         }
         .title-container h1 {
           font-size: 3rem;
@@ -89,7 +93,12 @@ export default function UserPageContent({ user, isOwner }: UserPageContentProps)
             font-size: 2.5rem;
           }
           .create-my-page-button-container {
-            top: 120px;
+            top: 10px;
+            right: 10px;
+          }
+          .create-page-link {
+            padding: 5px 10px;
+            font-size: 0.7rem;
           }
         }
       `}</style>

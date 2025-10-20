@@ -124,7 +124,7 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                     </div>
                   )}
                   {activeItemId === item.id && item.goodPoints && (
-                    <div className="good-points-overlay">
+                    <div className="good-points-overlay" onClick={() => setActiveItemId(null)}>
                       <p className="good-points-text">{item.goodPoints}</p>
                     </div>
                   )}
