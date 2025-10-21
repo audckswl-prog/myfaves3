@@ -29,11 +29,10 @@ export default function EditItemForm({ item }: EditItemFormProps) {
     // If a new file is selected, upload it first.
     if (file) {
       try {
-              const newBlob = await upload(file.name, file, {
-                access: 'public',
-                handleUploadUrl: '/api/upload',
-                allowOverwrite: true, // Allow overwriting existing blobs
-              });        uploadedImageUrl = newBlob.url; // Update the image URL to the new one
+                      const newBlob = await upload(file.name, file, {
+                        access: 'public',
+                        handleUploadUrl: '/api/upload',
+                      });        uploadedImageUrl = newBlob.url; // Update the image URL to the new one
       } catch (error) {
         console.error('Error uploading image:', error);
         alert('An unexpected error occurred during image upload.');

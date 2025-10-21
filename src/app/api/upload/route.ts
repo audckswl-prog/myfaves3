@@ -13,6 +13,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         // You can add your own logic here, e.g. for authorization.
         return {
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+          allowOverwrite: true, // Allow overwriting existing blobs
           tokenPayload: JSON.stringify({
             // optional, sent to your server on completion
           }),
