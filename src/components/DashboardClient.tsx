@@ -151,7 +151,7 @@ export default function DashboardClient({ items, name, username }: DashboardClie
                           whiteSpace: 'nowrap',
                         }}
                       >
-                        Purchase Link
+                        Link
                       </a>
                     )}
                   </div>
