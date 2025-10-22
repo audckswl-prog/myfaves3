@@ -5,6 +5,8 @@ import { NextAuthProvider } from '@/components/NextAuthProvider';
 
 import ConditionalLayout from '@/components/ConditionalLayout';
 
+// Trigger new deployment for environment variables to take effect
+
 const inter = Inter({ subsets: ['latin'] });
 const lato = Lato({
   subsets: ['latin'],
