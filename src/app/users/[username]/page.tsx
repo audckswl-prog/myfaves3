@@ -19,7 +19,11 @@ export default async function UserPage({ params }: UserPageProps) {
       username: params.username,
     },
     include: {
-      items: true,
+      items: {
+        orderBy: {
+          createdAt: 'desc',
+        },
+      },
     },
   });
 

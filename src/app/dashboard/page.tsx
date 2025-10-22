@@ -19,7 +19,11 @@ export default async function DashboardPage() {
       email: session.user.email,
     },
     include: {
-      items: true, // Include items to display them on the dashboard
+      items: {
+        orderBy: {
+          createdAt: 'desc',
+        },
+      },
     },
   });
 
