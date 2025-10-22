@@ -94,7 +94,7 @@ export default function AddItemForm() {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="link" className="form-label">Purchase Link</label>
+        <label htmlFor="link" className="form-label">Link <span style={{ fontSize: '0.8em', marginLeft: '5px', color: '#666' }}>(구매링크, 블로그링크 등등...)</span></label>
         <input
           type="url"
           className="form-control"
