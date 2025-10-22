@@ -138,7 +138,7 @@ export default function UserPageClient({ user, isOwner }: UserPageClientProps) {
 
                                                               >
 
-                                                                Purchase Link
+                                                                Link
 
                                                               </a>
 
