@@ -1,0 +1,6 @@
+{
+  "appId": "com.myfaves3.app",
+  "appName": "MyFaves3",
+  "webDir": "out",
+  "bundledWebRuntime": false
+}

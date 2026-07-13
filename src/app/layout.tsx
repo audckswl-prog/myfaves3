@@ -50,6 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap"
           rel="stylesheet"
